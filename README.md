@@ -120,25 +120,25 @@ M(w) = M(A(w), B(w), C(w), D(w))
 
 После применения алгоритма Кнут–Бендикса (скрипт knut-bendix.py) получаем итоговую TRS τ' после одной итерации:
 
-baaa -> aaab
-aabb -> abab
-aa -> bab
-aaab -> ab
-bbb -> b
-babbabab -> babababb
-bbabbab -> babbabb
-bbaba -> babab
-bababa -> babbabb
-bababbabb -> babbab
-babbab -> bbabb
-bbabb -> bab
-abab -> bab
-abbab -> bbab
-baba -> bab
-bbab -> babb
-bab -> abb
-aba -> ab
-abba -> abb
+1. baaa -> aaab
+2. aabb -> abab
+3. aa -> bab
+4. aaab -> ab
+5. bbb -> b
+6. babbabab -> babababb
+7. bbabbab -> babbabb
+8. bbaba -> babab
+9. bababa -> babbabb
+10. bababbabb -> babbab
+11. babbab -> bbabb
+12. bbabb -> bab
+13. abab -> bab
+14. abbab -> bbab
+15. baba -> bab
+16. bbab -> babb
+17. bab -> abb
+18. aba -> ab
+19. abba -> abb
 
 **Следовательно, исходная TRS T(τ) пополняема по Кнуту–Бендиксу.**
 
