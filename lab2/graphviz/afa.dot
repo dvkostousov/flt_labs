@@ -1,6 +1,6 @@
 digraph AFA {
     rankdir=LR;
-    node [shape = doublecircle]; q1 q2 q3 q4 q5 q6 q8 q16 q17 q19 q24 q25 q27 q30;
+    node [shape = doublecircle]; q1 q2 q3 q4 q5 q6 q8 q16 q17 q19 q24 q30;
     node [shape = circle];
     
     "&0" -> q1  [label="ε"];
@@ -12,14 +12,6 @@ digraph AFA {
     q25 -> q24  [label="a"];
     q25 -> q24  [label="b"];
     q25 -> q26  [label="c"];
-    
-    "&0" -> q27  [label="ε"];
-    q27 -> q27  [label="a"];
-    q27 -> q27  [label="b"];
-    q27 -> q28  [label="c"];
-    q28 -> q27  [label="a"];
-    q28 -> q27  [label="b"];
-    q28 -> q28  [label="c"];
     
     "&1" -> q9  [label="ε"];
     "&1" -> q29  [label="ε"];

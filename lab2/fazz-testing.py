@@ -98,8 +98,8 @@ class AFA:
 
 
 # проверка по регулярному выражению
-def check_regex(word):
-    return bool(re.fullmatch(REGEX, word))
+def check_regex(word, r):
+    return bool(re.fullmatch(r, word))
 
 
 # генерация случайных слов
@@ -206,25 +206,27 @@ AFA_FINAL = {
 }
 
 REGEX = r'((aa|bb)*)(b*|(a|a((bc|ac)*b)a|(abc|bca)*)a)|ab'
+REGEX_2 =  r'(ab|((aa|bb)+)?(b*|(a([ab]c)*b)?aa|((a(?=bc)..)|(..(?<=bc)a))*a))'
 
 dfa = DFA(DFA_TRANSITIONS, DFA_START, DFA_FINAL)
 nfa = NFA(NFA_TRANSITIONS, NFA_START, NFA_FINAL)
 afa = AFA(AFA_TRANSITIONS, AFA_FINAL)
 
 alphabet = ["a", "b", "c"]
-words = generate_words(alphabet, 1, 20, 3000)
+words = generate_words(alphabet, 1, 50, 100000)
 
 # Фазз-тестирование эквивалентности регулярного выражения, НКА, минимального ДКА и ПКА
 for w in words:
-    r = check_regex(w)
+    r = check_regex(w, REGEX)
+    r2 = check_regex(w, REGEX_2)
     n = nfa.accepts(w)
     d = dfa.accepts(w)
     p = afa.accepts(w)
 
-    if not (r == n == d == p):
+    if not (r == r2 == n == d == p):
         print("Несовпадение")
         print("слово:", w)
-        print("рег.:", r, "НКА:", n, "ДКА:", d, "ПКА:", p)
+        print("рег.:", r, "рег2:", r2, "НКА:", n, "ДКА:", d, "ПКА:", p)
         break
 else:
     print("Все автоматы эквивалентны друг другу и регулярному выражению на сгенерированном батче")
